@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>querySelector()</title>
+</head>
+<body>
+	<h2 class="esempio1">Modifica del primo elemento di una classe (querySelector())</h2>
+	<p class="esempio1">Questo paragrafo ha class="esempio1".</p>
+	<p><button id="qs">Clicca per cambiare colore di sfondo al primo elemento con class="esempio1"</button></p>
+	<script>
+		document.getElementById("qs").addEventListener("click", cambiaSfondo);
+		
+		function cambiaSfondo() {
+			document.querySelector(".esempio1").style.backgroundColor = "red";
+			// querySelector() è in grado di intercettare sia class che id, va indicato col "." quando è una class
+			// querySelector() in ogni caso agisce sul primo elemento presente nel DOM con le caratteristiche dell'argomento
+		}
+	</script>
+</body>
+</html>

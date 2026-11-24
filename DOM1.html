@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>preventDefault()</title>
+</head>
+<body>
+	<h2>Input text con "regole" (preventDefault())</h2>
+	<p>Inserisci il tuo nome usando soltanto lettere minuscole.</p>
+	<form>
+		<input type="text" id="myName" />
+	</form>
+	<script>
+		const mioNome = document.getElementById("myName"); // collego l'elemento DOM allo script
+		mioNome.addEventListener("keypress", checkName); // keydown: evento di pressione di qualunque tasto (keyup è il rilascio del tasto)
+		
+		function checkName(evt) { // evt è l'istantanea del momento in cui si innesca l'evento
+			let charCode = evt.charCode; // charCode recupera il codice ASCII del tasto premuto
+			
+			if (charCode !== 0) { // escludo il momento in cui l'input text è vuoto
+				
+				if (charCode < 97 || charCode > 122) { // sto processando tutti i tasti esterni all'intervallo valido
+					evt.preventDefault(); // blocco l'evento quindi non posso scrivere nell'input text
+					alert("Per favore usa solo lettere minuscole!");
+				}
+				
+			}
+			
+		}
+	</script>
+</body>
+</html>

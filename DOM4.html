@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>querySelectorAll()</title>
+</head>
+<body>
+	<h2 class="esempio2">Modifica di tutti gli elementi di una stessa classe (querySelectorAll())</h2>
+	<p class="esempio2">Questo paragrafo ha class="esempio2".</p>
+	<p><button id="qsa">Clicca per cambiare colore di sfondo a tutti gli elementi di class="esempio2"</button></p>
+	<script>
+		document.getElementById("qsa").addEventListener("click", cambiaSfondi);
+		
+		function cambiaSfondi() {
+			let x = document.querySelectorAll(".esempio2"); // x è un array di tutti gli elementi DOM aventi class="esempio2"
+			// è necessario un array poiché querySelectorAll() raggruppa ma non ordina gli elementi
+			
+			for (i = 0; i < x.length; i++) {
+				x[i].style.backgroundColor = "cyan";
+				// potremmo aggiungere altre impostazioni al CSS degli elementi DOM in gioco
+			}
+			
+		}
+	</script>
+</body>
+</html>
